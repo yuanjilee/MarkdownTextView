@@ -59,7 +59,12 @@ open class MarkdownTextStorage: HighlighterTextStorage {
         // Inline code
         addPattern("(`+)(?:.+?)(?<!`)\\1(?!`)", attributes.inlineCodeAttributes)
     }
-    
+  
+    public override init() {
+      attributes = MarkdownAttributes()
+      super.init()
+    }
+  
     required public init?(coder aDecoder: NSCoder) {
         attributes = MarkdownAttributes()
         super.init(coder: aDecoder)
